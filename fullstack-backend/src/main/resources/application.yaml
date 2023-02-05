@@ -1,0 +1,26 @@
+mysql:
+  host: ${DOCKER_MYSQL_SPRINGBOOT_DEMO_MYSQL_HOST:3307}
+
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${mysql.host}/testdb?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: root
+
+  jpa:
+    show-sql: true
+
+    hibernate:
+      ddl-auto: update
+
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+server:
+  port: 8080
+
+  error:
+    include-message: always
+
